@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+<table>
+	<tr>
+		<th>Title Name</th>
+		<th>Blog Body</th>
+	</tr>
+	<tr>
+		<%= render @article %>
+	</tr>
+</table>
+
+<div>
+  <%= link_to "Back to articles", articles_path %>
+</div>

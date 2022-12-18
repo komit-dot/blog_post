@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Articles</h1>
+
+<div id="articles">
+	<table>
+		<tr>
+			<th>Title Name</th>
+			<th>Blog Body</th>
+		</tr>
+		<% @articles.each do |article| %>
+		<tr>
+			<%= render article %>
+			<td>
+				<%= link_to "Show", article %>
+				<% if current_user && article.user_id == current_user.id %>
+					<%= link_to "Edit", edit_article_path(article) %>
+					<%= button_to "Destroy this article", article, method: :delete %>
+				<% end %>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+</div>
+
+<%= link_to "New article", new_article_path if current_user%>
